@@ -1,0 +1,6 @@
+require("modules.autostart")
+require("modules.plugins")
+require("modules.skin")
+require("modules.animations")
+require("modules.monitors")
+require("modules.bindings")
