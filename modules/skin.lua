@@ -18,7 +18,7 @@ hl.config({
 		preserve_split = true,
 	},
 	decoration = {
-		rounding = 10,
+		rounding = 15,
 		rounding_power = 2,
 		active_opacity = 1.0,
 		inactive_opacity = 1.0,
@@ -29,10 +29,14 @@ hl.config({
 			vibrancy = 0.1696,
 		},
 		shadow = {
-			enabled = true,
+			enabled = false,
 			range = 2,
 			render_power = 0,
 			color = colors.bg,
+		},
+		motion_blur = {
+			enabled = true,
+			samples = 4,
 		},
 	},
 	misc = {

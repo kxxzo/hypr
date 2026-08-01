@@ -4,8 +4,9 @@ if hl.plugin.hyprglass then
 	local hg = hl.plugin.hyprglass
 
 	hg.config({
-		--default_theme = "dark",
+		default_theme = "dark",
 		default_preset = "liquid",
+		tint_color = false,
 
 		brightness = 0.9,
 		dark = { brightness = 0.82 },
@@ -13,6 +14,9 @@ if hl.plugin.hyprglass then
 
 		layers = { enabled = 1 },
 	})
+
+	hg.layer("debug-panel", { exclude = true })
+	hg.layer("selection", { exclude = true })
 
 	-- Presets
 	hg.preset("clear", {
@@ -24,15 +28,15 @@ if hl.plugin.hyprglass then
 
 	hg.preset("liquid", {
 		glass_opacity = 1,
-		blur_strength = 5,
-		blur_iterations = 2,
+		blur_strength = 1,
+		blur_iterations = 5,
 
-		edge_thickness = 0.01,
-		refraction_strength = 3.0,
-		lens_distortion = 0.0,
+		edge_thickness = 0.02,
+		refraction_strength = 3,
+		lens_distortion = 2,
 
-		chromatic_aberration = 0.7,
-		specular_strength = 1,
+		chromatic_aberration = 1,
+		specular_strength = 0,
 		vibrancy = 0.1696,
 
 		dark = { brightness = 0.7 },
@@ -68,6 +72,21 @@ if hl.plugin.dynamic_cursors then
 					-- higher values will make slow motions smoother but more delayed
 					window = 100,
 				},
+			},
+		},
+	})
+end
+
+if hl.plugin.scrolloverview then
+	hl.config({
+		plugin = {
+			scrolloverview = {
+				gesture_distance = 300, -- how far is the "max" for the gesture
+				scale = 0.8, -- preferred overview scale
+				workspace_gap = 50,
+				layout = "horizontal", -- vertical or horizontal
+				wallpaper = 1, -- 0: global only, 1: per-workspace only, 2: both
+				blur = false, -- blur only the main overview wallpaper
 			},
 		},
 	})

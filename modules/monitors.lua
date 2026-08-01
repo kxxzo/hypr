@@ -7,5 +7,8 @@ hl.monitor({
 	scale = 1,
 
 	bitdepth = 10,
-	cm = "auto",
+	cm = "srgb",
+
+	sdr_min_luminance = 0.005,
+	sdr_max_luminance = 150,
 })
