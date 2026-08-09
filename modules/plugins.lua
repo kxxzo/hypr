@@ -17,6 +17,7 @@ if hl.plugin.hyprglass then
 
 	hg.layer("debug-panel", { exclude = true })
 	hg.layer("selection", { exclude = true })
+	hg.layer("kitty", { exclude = true })
 
 	-- Presets
 	hg.preset("clear", {
@@ -66,27 +67,12 @@ if hl.plugin.dynamic_cursors then
 					-- quadratic          - a quadratic function is used
 					-- negative_quadratic - negative version of the quadratic one, feels more aggressive
 					-- see `activation` in `src/mode/utils.cpp` for how exactly the calculation is done
-					activation = "negative_quadratic",
+					activation = "quadratic",
 
 					-- time window (ms) over which the speed is calculated
 					-- higher values will make slow motions smoother but more delayed
 					window = 100,
 				},
-			},
-		},
-	})
-end
-
-if hl.plugin.scrolloverview then
-	hl.config({
-		plugin = {
-			scrolloverview = {
-				gesture_distance = 300, -- how far is the "max" for the gesture
-				scale = 0.8, -- preferred overview scale
-				workspace_gap = 50,
-				layout = "horizontal", -- vertical or horizontal
-				wallpaper = 1, -- 0: global only, 1: per-workspace only, 2: both
-				blur = false, -- blur only the main overview wallpaper
 			},
 		},
 	})

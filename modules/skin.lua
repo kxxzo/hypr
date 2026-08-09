@@ -35,14 +35,14 @@ hl.config({
 			color = colors.bg,
 		},
 		motion_blur = {
-			enabled = true,
+			enabled = false,
 			samples = 4,
 		},
 	},
 	misc = {
-		vrr = 1,
+		vrr = 0,
 	},
 })
 
 hl.env("XCURSOR_THEME", "macOS")
-hl.env("XCURSOR_SIZE", "33")
+hl.env("XCURSOR_SIZE", "45")

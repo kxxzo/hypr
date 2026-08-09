@@ -59,6 +59,3 @@ for i = 1, 5 do
 	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
 	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
-hl.bind(mainMod .. " + D", function()
-	hl.plugin.scrolloverview.overview("toggle all")
-end)
