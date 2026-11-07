@@ -1,23 +1,39 @@
-hl.curve("underShoot", { type = "bezier", points = { { 0.95, -0.1 }, { 0.1, 0.9 } } })
-hl.curve("overShoot", { type = "bezier", points = { { 0.05, 0.9 }, { 0.1, 1.0 } } })
-hl.curve("slowIn", { type = "bezier", points = { { 0.95, 0.1 }, { 0.1, 1 } } })
-hl.curve("slowOut", { type = "bezier", points = { { 0.05, 0.9 }, { 0.1, 1 } } })
-hl.curve("quick", { type = "bezier", points = { { 0.15, 0 }, { 0.1, 1 } } })
+-------------
+-- Springs --
+-------------
 
-hl.animation({ leaf = "global", enabled = true, speed = 10, bezier = "default" })
-hl.animation({ leaf = "border", enabled = true, speed = 5, bezier = "quick" })
-hl.animation({ leaf = "windowsIn", enabled = true, speed = 2, bezier = "overShoot", style = "slide left" })
-hl.animation({ leaf = "windowsOut", enabled = true, speed = 3, bezier = "slowIn", style = "slide right" })
-hl.animation({ leaf = "windowsMove", enabled = true, speed = 3, bezier = "slowOut" })
-hl.animation({ leaf = "fadeIn", enabled = true, speed = 1.5, bezier = "slowOut" })
-hl.animation({ leaf = "fadeOut", enabled = true, speed = 2, bezier = "slowIn" })
-hl.animation({ leaf = "fade", enabled = true, speed = 3, bezier = "quick" })
-hl.animation({ leaf = "layers", enabled = true, speed = 4, bezier = "slowOut" })
-hl.animation({ leaf = "layersIn", enabled = true, speed = 2, bezier = "slowOut", style = "fade" })
-hl.animation({ leaf = "layersOut", enabled = true, speed = 3, bezier = "slowIn", style = "fade" })
-hl.animation({ leaf = "fadeLayersIn", enabled = true, speed = 1.5, bezier = "slowIn" })
-hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 2, bezier = "slowIn" })
-hl.animation({ leaf = "workspaces", enabled = true, speed = 3, bezier = "slowOut", style = "slide top" })
-hl.animation({ leaf = "workspacesIn", enabled = true, speed = 3, bezier = "overShoot", style = "slidefade top 97%" })
-hl.animation({ leaf = "workspacesOut", enabled = true, speed = 3, bezier = "slowIn", style = "slidefade top 90%" })
-hl.animation({ leaf = "zoomFactor", enabled = true, speed = 3, bezier = "quick" })
+hl.curve( "smooth-slow", { type = "spring", mass = 1, stiffness = 600, dampening = 45 })
+hl.curve( "smooth-fast", { type = "spring", mass = 1, stiffness = 800, dampening = 60 })
+hl.curve( "smooth-ultra-fast", { type = "spring", mass = 1, stiffness = 1000, dampening = 70 })
+hl.curve( "smooth-max", { type = "spring", mass = 1, stiffness = 5000, dampening = 200 })
+
+hl.curve( "soft-slow", { type = "spring", mass = 1, stiffness = 600, dampening = 40 })
+hl.curve( "soft-fast", { type = "spring", mass = 1, stiffness = 800, dampening = 55 })
+
+hl.curve( "semi-slow", { type = "spring", mass = 1, stiffness = 600, dampening = 35 })
+hl.curve( "semi-fast", { type = "spring", mass = 1, stiffness = 800, dampening = 50 })
+
+hl.curve( "hard-slow", { type = "spring", mass = 1, stiffness = 600, dampening = 30 })
+hl.curve( "hard-fast", { type = "spring", mass = 1, stiffness = 800, dampening = 45 })
+
+----------------
+-- Animations --
+----------------
+
+hl.animation({ leaf = "windowsIn", enabled = true, speed = 1, spring = "soft-slow", style = "slide left" })
+hl.animation({ leaf = "windowsOut", enabled = true, speed = 3, spring = "soft-slow", style = "slide right" })
+hl.animation({ leaf = "windowsMove", enabled = true, speed = 1, spring = "semi-slow" })
+hl.animation({ leaf = "border", enabled = true, speed = 1, spring = "smooth-slow" })
+
+hl.animation({ leaf = "workspacesIn", enabled = true, speed = 3, spring = "smooth-fast", style = "slide top" })
+hl.animation({ leaf = "workspacesOut", enabled = true, speed = 2, spring = "smooth-fast", style = "slide top" })
+
+hl.animation({ leaf = "layersIn", enabled = true, speed = 1, spring = "smooth-ultra-fast", style = "popin 50%" })
+hl.animation({ leaf = "layersOut", enabled = true, speed = 1, spring = "smooth-max", style = "fade" })
+hl.animation({ leaf = "fadeLayersIn", enabled = true, speed = 1, spring = "smooth-ultra-fast" })
+hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 1, spring = "smooth-ultra-fast" })
+
+hl.animation({ leaf = "fadeIn", enabled = true, speed = 1, spring = "smooth-ultra-fast" })
+hl.animation({ leaf = "fadeOut", enabled = true, speed = 1, spring = "smooth-ultra-fast" })
+
+hl.animation({ leaf = "zoomFactor", enabled = true, speed = 1, spring = "smooth-fast" })
